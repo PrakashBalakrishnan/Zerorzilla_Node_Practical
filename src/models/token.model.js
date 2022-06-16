@@ -1,24 +1,27 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const tokenSchema = new Schema({
+const tokenSchema = new Schema(
+  {
     userId: {
-        type: Schema.Types.ObjectId,
-        ref: 'user',
-        required: true
+      type: Schema.Types.ObjectId,
+      ref: "user",
+      required: true,
     },
     token: {
-        type: String
+      type: String,
     },
     type: {
-        type: String
-    }
-}, {
+      type: String,
+    },
+  },
+  {
     timestamps: true,
-    toObject: {getters: true},
-    toJSON: {getters: true},
-});
+    toObject: { getters: true },
+    toJSON: { getters: true },
+  }
+);
 
-const Token = mongoose.model('token', tokenSchema);
+const Token = mongoose.model("token", tokenSchema);
 
 module.exports = Token;
